@@ -1,0 +1,72 @@
+---
+nav_title: "GET: Subscription information based on email address or phone number"
+permalink: "/users/delete_subscription"
+hidden: true
+
+layout: api_page
+
+page_type: reference
+platform: API
+channel: Email
+tool:
+  - Canvas
+  - Campaigns
+
+description: "This article outlines the usage of and parameters for deleting all subscription states associated with an email address or phone number."
+
+{% alert important %}
+_Note: this API call will only be successful if all associated user profiles using that email address or phone number have been deleted._
+{% endalert %}
+
+---
+{% api %}
+# Query based on email address or phone number
+{% apimethod DELETE %}
+/users/subscription
+{% endapimethod %}
+
+This endpoint allows you to delete the subscription state value based on an email address or phone number.
+
+{% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7c2ef84f-ddf5-451a-a72c-beeabc06ad9d {% endapiref %}
+
+{% alert important %}
+__Looking for the `api_key` parameter?__<br>As of May 2020, Braze has changed how we read API keys to be more secure. Now API keys must be passed as a request header, please see `YOUR_REST_API_KEY` within the __Example Request__ below.<br><br>Braze will continue to support the `api_key` being passed through the request body and URL parameters, but will eventually be sunset. Please update your API calls accordingly.
+{% endalert %}
+
+## Request Parameters
+
+
+
+| Parameter | Required | Data Type | Description |
+| ----------|-----------| ----------|----- |
+| `email` | Yes * | String | The email address of the user (must include at least one address and at most 50 addresses). |
+| `phone` | Yes * | String | The phone number of the user (must include at least one phone number and at most 50 phone numbers). The recommendation is to provide this in the E.164 format. |
+
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4}
+
+
+## Example Request
+```json
+Content-Type: application/json
+Authorization: Bearer YOUR_REST_API_KEY
+[
+{phone: "+12125551212"},
+{email: "dont.spam@me.com"},
+{phone: "+17185551212"},
+...
+]
+```
+
+### Sample Response
+
+Entries are listed in descending order.
+
+```json
+Content-Type: application/json
+
+{
+  "status": "The emails and/or phone numbers have been queued for deletion",
+  "message": "success"
+}
+```
+{% endapi %}

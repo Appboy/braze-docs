@@ -27,6 +27,9 @@ guide_featured_list:
   - name: "GET: Query Unsubscribed Email Addresses"
     link: /docs/api/endpoints/email/get_query_unsubscribed_email_addresses/
     fa_icon: fas fa-envelope
+  - name: "GET: Query by Email Address"
+    link: /docs/api/endpoints/email/get_subscription/
+    fa_icon: fas fa-reply-all
   - name: "POST: Change Email Subscription Status"
     link: /docs/api/endpoints/email/post_email_subscription_status/
     fa_icon: fas fa-at
