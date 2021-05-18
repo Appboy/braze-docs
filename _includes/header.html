@@ -2,33 +2,325 @@
 {%- unless hide_nav -%}
 {%- assign hide_nav = layout.hide_nav -%}
 {%- endunless -%}
-
+<div id="backdrop" class="backdrop">
+</div>
 <header id="braze_header" class="header" role="banner">
-    <nav class="navbar navbar-expand-md  flex-column flex-lg-row navbar-light animate-in">
-      <a class="navbar-brand" target="_blank" href="https://www.braze.com/"><img src="{{site.baseurl}}/assets/img/logo-braze-fa.svg" alt="Braze"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#braze_header_nav" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse navbarCollapse " id="braze_header_nav">
-        <div class="navbar-wrapper" id="braze_nav_wrapper">
-          <ul class="navbar-nav mr-auto" id="braze_header_main">
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/product/"><div>Product</div></a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/industries/"><div>Industries</div></a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/customers/"><div>Customers</div></a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/perspectives/"><div>Perspectives</div></a></li>
-            <li class="nav-item"><a class="nav-link active" target="_blank" href="https://www.braze.com/resources/"><div>Resources</div></a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/about/"><div>About</div></a></li>
-          </ul>
-          <ul class="navbar-nav" id="braze_header_alt">
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.braze.com/contact/"><div>Contact</div></a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" href="https://dashboard.braze.com/developers/sign_in"><div>Login</div></a></li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-md  flex-column flex-lg-row navbar-light animate-in">
+    <a class="navbar-brand" target="_blank" href="https://www.braze.com/"><img src="{{site.baseurl}}/assets/img/logo-braze-fa.svg" alt="Braze"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#braze_header_nav" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse navbarCollapse " id="braze_header_nav">
+      <div class="navbar-wrapper" id="braze_nav_wrapper">
+        <ul class="navbar-nav mr-auto" id="braze_header_main">
+          <!-- Why Braze -->
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-braze" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Why Braze?<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g stroke="#000" stroke-width="4">
+                        <g>
+                            <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                        </g>
+                    </g>
+                </g></svg></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-braze" id="main-header-dropdown">
+                <ul class="col" id="background-hover">
+                    <h5>Why Braze?</h5>
+                    <p>Instantly get the right message to the right customers on any channel.</p>
+                    <div>
+                      <li><a href="https://www.braze.com/why-braze"><span>See how we're different</span></a></li>
+                    </div>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- Product -->
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-product" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Product<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                  <g stroke="#000" stroke-width="4">
+                      <g>
+                          <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                      </g>
+                  </g>
+                </g></svg></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-product" id="main-header-dropdown">
+                <div class="d-flex flex-row" id="dropdown-product">
+                  <div>
+                    <ul id="background-hover">
+                      <h5>Product Overview</h5>
+                      <p>Power more personalized messages across mobile, web, email, SMS, and more.</p>
+                      <li><a href="https://www.braze.com/product" target="_blank"><span>See Braze in action</span></a></li>
+                    </ul>
+                    <hr class="bg-gradient">
+                    <ul id="background-hover">
+                      <h4>Engineered for any scale</h4>
+                      <p>Braze enables world-class customer engagement powered by flexible APIs, supported by enterprise-grade security and compliance.</p>
+                      <li><a href="https://www.braze.com/braze-for-engineering" target="_blank"><span>See how we do it</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4 product-opt">
+                    <ul id="background-hover">
+                      <a href="https://www.braze.com/product/data-and-analytics" target="_blank">
+                        <h5>Data &amp; Analytics</h5>
+                        <p>Live 360° customer profiles, actionable insights, data sharing and streaming</p>
+                      </a>
+                    </ul>
+                    <ul id="background-hover">
+                      <a href="https://www.braze.com/product/braze-canvas" target="_blank">
+                        <h5>Intuitive Tools for Marketers</h5>
+                        <p>Dynamic segmentation, customer journey building, and personalization</p>
+                      </a>
+                    </ul>
+                    <ul id="background-hover">
+                      <a href="https://www.braze.com/product/optimization" target="_blank">
+                        <h5>Optimization</h5>
+                        <p>Behavior-based automation, predictive tools, and A/B testing</p>
+                      </a>
+                    </ul>
+                </div>
+                  <ul class="col-4">
+                    <h5>Integrated Cross-Channel Delivery</h5>
+                    <li><a class="link" href="https://www.braze.com/product/in-app-in-browser-messages" target="_blank"><span>In-App &amp; In-Browser Messaging</span></a></li>
+                    <li><a class="link" href="https://www.braze.com/product/content-cards" target="_blank"><span>Content Cards</span></a></li>
+                    <li><a class="link" href="https://www.braze.com/product/email" target="_blank"><span>Email</span></a></li>
+                    <li><a class="link" href="https://www.braze.com/product/sms" target="_blank"><span>SMS</span></a></li>
+                    <li><a class="link" href="https://www.braze.com/product/mobile-web-push" target="_blank"><span>Mobile &amp; Web Push</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Solutions -->
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-solutions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Solutions<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g stroke="#000" stroke-width="4">
+                        <g>
+                            <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                        </g>
+                    </g>
+                </g></svg></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-solutions" id="main-header-dropdown">
+                <div class="d-flex flex-row">
+                  <ul class="col-6">
+                    <h5>Industries</h5>
+                    <li><a href="https://www.braze.com/solutions/retail-and-ecommerce" target="_blank"><span>Retail &amp; eCommerce</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/media-entertainment" target="_blank"><span>Media &amp; Entertainment</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/financial-services" target="_blank"><span>Financial Services</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/travel-hospitality" target="_blank"><span>Travel &amp; Hospitality</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/on-demand" target="_blank"><span>On Demand</span></a></li>
+                  </ul>
+                  <ul class="col-6">
+                    <h5>Use Cases</h5>
+                    <li><a href="https://www.braze.com/solutions/optimize-onboarding" target="_blank"><span>Optimize Onboarding</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/increase-engagement" target="_blank"><span>Increase Engagement</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/reduce-churn" target="_blank"><span>Reduce Churn</span></a></li>
+                    <li><a href="https://www.braze.com/solutions/improve-acquisition" target="_blank"><span>Improve Acquisition</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Customers -->
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-customers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Customers<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                  <g stroke="#000" stroke-width="4">
+                      <g>
+                          <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                      </g>
+                  </g>
+                </g></svg></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-customers" id="main-header-dropdown">
+                <div class="d-flex flex-row" id="dropdown-customers">
+                  <ul class="col-4" id="background-hover">
+                    <h5>Case Studies</h5>
+                    <li><a href="https://www.braze.com/customers" target="_blank"><span>See how leading brands worldwide use Braze to drive results</span></a></li>
+                  </ul>
+                  <ul class="col-8 cust-case-studies">
+                    <a href="https://www.braze.com/customers/pomelo-case-study-boosts-conversions">
+                      <div class="d-flex flex-row case-study">
+                        <img src="https://braze.imgix.net/production/hero/anthropologie_landing_featured_image_2021-02-24-175033.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=300&q=90&w=300&s=edf6f5e91b43654e1abcf0c2705bc4f4" width="120" height="120">
+                        <div class="d-flex flex-column">
+                            <h5>Web Push</h5>
+                            <span>Anthropologie Drives Higher Conversions With Web Push Notifications</span>
+                            <li><span>Read more</span></li>
+                          </div>
+                        </div>
+                      </a>         
+                      <a href="https://www.braze.com/customers/pomelo-case-study-boosts-conversions">
+                        <div class="d-flex flex-row case-study">
+                          <img src="https://braze.imgix.net/production/hero/800x800_Detail_CS_Pomelo_2021-02-25-165518.png?auto=compress%2Cformat&amp;crop=focalpoint&amp;fit=crop&amp;fp-x=0.5&amp;fp-y=0.5&amp;h=300&amp;q=90&amp;w=300&amp;s=2a423121c58662ccbf27113a97f72485" width="120" height="120">
+                          <div class="d-flex flex-column">
+                            <h5>Cross-Channel</h5>
+                            <span>Fashion Retailer Pomelo Boosts Conversions by 300% With Help From Braze and Friends</span>
+                            <li><span>Read more</span></li>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="https://www.braze.com/customers/pomelo-case-study-boosts-conversions">
+                        <div class="d-flex flex-row case-study">
+                          <img src="https://braze.imgix.net/production/hero/800x800_Detail_CS_Babylon.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=300&q=90&w=300&s=8ae39c1f0d07e4606290c19018122765" width="120" height="120">
+                          <div class="d-flex flex-column">
+                            <h5>Email</h5>
+                            <span>Babylon Pioneers AMP for Email to Achieve a 20% Increase in Engagement</span>
+                            <li><span>Read more</span></li>
+                          </div>
+                        </div>
+                      </a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Partners -->
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-partners" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Partners<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g stroke="#000" stroke-width="4">
+                        <g>
+                            <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                        </g>
+                    </g>
+                  </g></svg></div>
+              </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-partners" id="main-header-dropdown">
+              <div class="d-flex flex-row">
+                <ul class="col-8" id="background-hover">
+                  <h5>Strategic partnerships</h5>
+                  <p>Extend the value of Braze by connecting with a trusted Technology or Solutions partner.</p>
+                  <li><a href="https://www.braze.com/company"><span>Learn more about Braze Alloys</span></a></li>
+                </ul>
+                <ul class="col-4">
+                  <li><a href="https://www.braze.com/partners/technology-partners"><span>Technology Partners</span></a></li>
+                  <li><a href="https://www.braze.com/partners/solutions-partners"><span>Solutions Partners</span></a></li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </li>
+          <!-- Resources --> 
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-resources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="border-focus">Resources<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g stroke="#000" stroke-width="4">
+                        <g>
+                            <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                        </g>
+                    </g>
+                </g></svg></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-resources" id="main-header-dropdown">
+                <ul id="background-hover">
+                  <a href="https://www.braze.com/resources" target="_blank">
+                    <h5>All Resources →</h5>
+                    <p>Thought leadership, tips, and tricks for world-class customer engagement</p>
+                  </a>
+                </ul>
+                <hr class="bg-gradient">
+                <div class="d-flex flex-row">
+                  <ul class="col-6">
+                    <h5>Using Braze</h5>
+                      <li>
+                        <a class="link" href="https://braze.com/docs" target="_blank"><span>Documentation &amp; User Guides</span></a>
+                      </li>
+                      <li>
+                        <a class="link" href="https://www.braze.com/customer-community" target="_blank"><span>Braze User Community</span></a>
+                      </li>
+                      <li>
+                        <a class="link" href="https://www.braze.com/resources/learning-at-braze" target="_blank"><span>Learning at Braze</span></a>
+                      </li>
+                      <li>
+                        <a class="link" href="https://www.braze.com/resources/articles/glossary" target="_blank"><span>Glossary</span></a>
+                      </li>
+                      <li>
+                        <a class="link" href="https://www.braze.com/customer-support-services" target="_blank"><span>Customer Support &amp; Services</span></a>
+                      </li>
+                  </ul>
+                  <ul class="col-6">
+                    <h5>Content Library</h5>
+                    <li>
+                      <a class="link" href="/resources/search?section=articles" target="_blank"><span>Articles</span></a>
+                    </li>
+                    <li>
+                      <a class="link" href="/resources/search?section=reportsAndGuides" target="_blank"><span>Reports &amp; Guides</span></a>
+                    </li>
+                    <li>
+                      <a class="link" href="/resources/search?section=webinarsAndEvents" target="_blank"><span>Webinars &amp; Events</span></a>
+                    </li>
+                    <li>
+                      <a class="link" href="/resources/search?section=videos" target="_blank"><span>Videos</span></a>
+                    </li>
+                    <li>
+                      <a class="link" href="https://www.braze.com/resources/benchmarks" target="_blank"><span>Benchmarks</span></a>
+                    </li>
+                  </ul>
+              </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav" id="braze_header_alt">
+          <li class="nav-item">
+            <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdown-menu-link-company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="border-focus">Company<svg class="w-xxs h-auto ml-1" width="8" height="4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9">
+                  <g fill="none" fill-rule="evenodd" stroke-linecap="round">
+                      <g stroke="#000" stroke-width="4">
+                          <g>
+                              <path d="M488 21L482 25 476 21" transform="translate(-570 -786) translate(96 767)"></path>
+                          </g>
+                      </g>
+                  </g></svg>
+                </div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-menu-link-company" id="main-header-dropdown">
+                <ul id="dropdown-company">
+                  <li><a href="https://www.braze.com/company"><span>About Us</span></a></li>
+                  <li><a href="https://www.braze.com/company/careers"><span>Careers</span></a></li>
+                  <li><a href="https://www.braze.com/company/news"><span>News</span></a></li>
+                  <li><a href="https://www.braze.com/company/legal"><span>Legal</span></a></li>
+                  <li><a href="https://www.braze.com/company/contact"><span>Contact Us</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" target="_blank" href="https://dashboard.braze.com/sign_in"><div>Login</div></a></li>
+          <li class="nav-item"><a class="nav-link get-started-button" target="_blank" href="https://www.braze.com/get-started">Get Started</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <script>
+    $(".nav-link.dropdown-toggle").click((e) => {
+      $(".nav-link.dropdown-toggle").each((e, ea) => {
+        ea.children[0].classList.remove("border-focus-show");
+      });
+      const isOpen = e.currentTarget.ariaExpanded !== "true";
+      const borderDiv = e.currentTarget.children[0];
+      borderDiv.classList.toggle("border-focus-show", isOpen);
+      $("#backdrop").toggleClass("backdrop-show", isOpen);
+    });
+    $("#backdrop").click((e) => {
+      $(".nav-link.dropdown-toggle").each((e, ea) => {
+        ea.children[0].classList.remove("border-focus-show");
+      });
+      e.currentTarget.classList.remove("backdrop-show");
+    });
+  </script>
 </header>
 
 <header id="header_nav" >
-
   <nav class="navbar navbar-expand-md  flex-column-md flex-md-row navbar-dark">
     <div id="header_wrapper">
     <div id="nav_logo">
@@ -68,13 +360,10 @@
           {%- endif -%}
         {%- endfor -%}
       </ul>
-
     </div>
-
 
     {%- assign default_url = site.baseurl | append: '/' -%}
     {%- assign default_title = 'Documentation' -%}
-
     {%- if active_title == '' -%}
     {%- assign active_url = default_url -%}
     {%- assign active_title =  default_title -%}
@@ -115,12 +404,10 @@
            </div>
          </li>
       </ul>
-
+      </div>
     </div>
     </div>
-
-      {% include header_search.html %}
-
+    {% include header_search.html %}
       {% unless hide_nav %}
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#nav_bar" aria-controls="nav_bar" aria-expanded="false" aria-label="Toggle navigation" id="header_toggle">
         <span class="burger burger-1"></span><span class="burger burger-2"></span><span class="burger burger-3"></span><span class="burger burger-4"></span>

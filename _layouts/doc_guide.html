@@ -40,140 +40,133 @@ hide_breadcrumb: true
 
 
 <div class="col d-print-block " id="main_content" >
+  <h2 class="doc_menu_title"> {{ page.doc_top_header }} </h2>
   <div>{% include docs_search.html %} </div>  
   <div class="doc-container">
-    <div class="row doc-row">
-      <div id="doc-main" class="col-xl justify-content-between">
-      <h2 class="doc_menu_title"> {{ page.doc_top_header }} </h2>
-      <p>  {{ page.doc_top_text | markdownify }} </p>
-  
-  
-      <div id="doc_list" class="row justify-content-between">
-        {%- for doc_list in page.doc_menu_list  -%}
-          {%- if doc_list.link -%}
+    <div class="doc-row justify-content-around">
+      <div id="doc-main" class="col-xl">
+        <p>  {{ page.doc_top_text | markdownify }} </p>
+        <div id="doc_list" class="justify-content-between">
+          {%- for doc_list in page.doc_menu_list  -%}
+            {%- if doc_list.link -%}
+            
           <a href="{{ doc_list.link }}">
+              {%- endif %}
+          
+            <div id="{{ doc_list.name | handle }}" class="doc_item">
+              <div class="doc_img">
+            {%- if doc_list.image -%}
+            
+                <img src="{{site.baseurl}}{{ doc_list.image}} " />
+            {%- endif -%}
+            
+              </div>
+              <div class="doc_info">
+                <div class="doc_name">
+                  <span>{{ doc_list.name }}</span>
+                </div>
+                <div class="doc_description">
+                  {{ doc_list.description }}
+              </div>
+              </div>
+              <div class="doc_img arrow">
+                <img src="{{site.baseurl}}/assets/img/new-icons/right-arrow.svg" />
+              </div>
+            </div>
+            {%- if doc_list.link -%}
+            
+          </a>
             {%- endif %}
-        <div id="{{ doc_list.name | handle }}" class="doc_item">
-          <div class="doc_img">
-          {%- if doc_list.image -%}
-          <img src="{{site.baseurl}}{{ doc_list.image}} " />
-          {%- endif -%}
-          </div>
-          <div class="doc_info">
-            <div class="doc_name">
-                <span>{{ doc_list.name }}</span>
-            </div>
-            <div class="doc_description">
-                {{ doc_list.description }}
-            </div>
-          </div>
-          <div class="doc_img arrow">
-            <img src="{{site.baseurl}}/assets/img/new-icons/right-arrow.svg" />
+          {%- endfor -%}
+        
+        </div>
+        <div id="doc_bottom">
+          <div id="doc_bottom_left" class="doc_bottom_full">
+            <a href="https://lab.braze.com" target="_blank">
+              <div id="doc_lab">
+                <div id="doc_lab_img">
+                  <img src="{{site.baseurl}}/assets/img/lab.png" />
+                </div>
+                <div id="doc_lab_info" class="doc_info">
+                  <div class="doc_name">
+                  Guided Learning with LAB
+                </div>
+                  <div class="doc_description">
+                  Technical terms and concepts explained through a mix of videos, lessons, and interactive exercises.
+                </div>
+                </div>
+              </div>
+            </a>
+            <!-- <div id="doc_help" class="doc_info"><div class="doc_name">
+                Help
+              </div><div class="doc_description">
+                Can't find what you're looking for? Search below, or visit our <a href="{{site.baseurl}}/help/home/">Help page</a>.
+              </div><form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline"><div class="input-group "><input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="Search Braze Documentation" aria-label="Search"><button class="btn"><i class="fa fa-search" aria-hidden="true"></i></button></div></form></div> -->
           </div>
         </div>
-          {%- if doc_list.link -%}
-          </a>
-          {%- endif %}
-        {%- endfor -%}
       </div>
-      <div id="doc_bottom">
-        <div id="doc_bottom_left" class="doc_bottom_full">
-          <a href="https://lab.braze.com" target="_blank">
-  
-          <div id="doc_lab">
-            <div id="doc_lab_img"><img src="{{site.baseurl}}/assets/img/lab.png" /></div>
-            <div id="doc_lab_info" class="doc_info">
-              <div class="doc_name">
-                Guided Learning with LAB
-              </div>
-              <div class="doc_description">
-                Technical terms and concepts explained through a mix of videos, lessons, and interactive exercises.
-              </div>
-  
+      <!-- popular -->
+      <div id="doc_right" class="col-xl">
+        <div id="doc_popular" class="doc_info">
+          <div class="doc_name">Popular Topics</div>
+          <div class="doc_description">
+          {%- for doc_list in page.popular_topic_list  -%}
+            
+            <div>
+              <a href="{{ doc_list.link }}">{{ doc_list.name }}</a>
             </div>
-  
+          {%- endfor -%}
+        
           </div>
-          </a>
-  
-          <!-- <div id="doc_help" class="doc_info">
-            <div class="doc_name">
-              Help
-            </div>
-            <div class="doc_description">
-              Can't find what you're looking for? Search below, or visit our <a href="{{site.baseurl}}/help/home/">Help page</a>.
-            </div>
-            <form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline">
-              <div class="input-group ">
-                <input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="Search Braze Documentation" aria-label="Search">
-                <button class="btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </div>
-          </form>
-          </div> -->
+          <div id="gradient"></div>
         </div>
-    </div>
-  
-      </div>
-    <!-- popular -->
-    <div id="doc_right" class="col-xl">
-      <div id="doc_popular" class="doc_info">
-        <div class="doc_name">Popular Topics</div>
-        <div class="doc_description">
-        {%- for doc_list in page.popular_topic_list  -%}
-          <div>
-          <a href="{{ doc_list.link }}">{{ doc_list.name }}</a>
-          </div>
-        {%- endfor -%}
-      </div>
-      <div id="gradient"></div>
-      </div>
-      <a id="status-indicator" href="https://braze.statuspage.io" target="_blank">
-        <div id="doc_status" class="doc_info">
+        <a id="status-indicator" href="https://braze.statuspage.io" target="_blank">
+          <div id="doc_status" class="doc_info">
             <div class="status-title">BRAZE SYSTEM STATUS</div>
-            <div class="color-dot"></div><div class="color-description">Checking Status</div>
-        </div>
-      </a>
-  
-      <script type="text/javascript">
-        function loadStatusPage() {
-          var lsp = document.createElement('script');
-          lsp.type = 'text/javascript';
-          lsp.async = true;
-          lsp.src = '//statuspage-production.s3.amazonaws.com/se-v2.js';
-          lsp.onload = function() {
-            if (typeof(StatusPage) !== "undefined") {
-              var sp = new StatusPage.page({page: '{{site.status_io_key}}'});
-              sp.status({
-                success: function (data) {
-                  var sd = document.getElementById('status-indicator');
-                  sd.getElementsByClassName('color-description')[0].textContent = data.status.description;
-                  sd.getElementsByClassName('color-dot')[0].className = "color-dot " + data.status.indicator;
-                }
-              });
-            }
+            <div class="color-dot"></div>
+            <div class="color-description">Checking Status</div>
+          </div>
+        </a>
+        <script type="text/javascript">
+          function loadStatusPage() {
+            var lsp = document.createElement('script');
+            lsp.type = 'text/javascript';
+            lsp.async = true;
+            lsp.src = '//statuspage-production.s3.amazonaws.com/se-v2.js';
+            lsp.onload = function() {
+              if (typeof(StatusPage) !== "undefined") {
+                var sp = new StatusPage.page({page: '{{site.status_io_key}}'});
+                sp.status({
+                  success: function (data) {
+                    var sd = document.getElementById('status-indicator');
+                    sd.getElementsByClassName('color-description')[0].textContent = data.status.description;
+                    sd.getElementsByClassName('color-dot')[0].className = "color-dot " + data.status.indicator;
+                  }
+                });
+              }
+            };
+    
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(lsp, s);
           };
-  
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(lsp, s);
-        };
-  
-        window.addEventListener('load', loadStatusPage, false);
-      </script>
-  
-  
-    </div>
+    
+          window.addEventListener('load', loadStatusPage, false);
+        </script>
+      </div>
     </div>
     <div class="doc-row">
-      {%- unless hide_bottom_nav -%}
+        {%- unless hide_bottom_nav -%}
+        
       <div id="bottom_nav" >
-        {%- unless hide_feedback -%}
-        {% include feedback.html  %}
-        {%- endunless -%}
+          {%- unless hide_feedback -%}
+          {% include feedback.html  %}
+          {%- endunless -%}
+          
         <!-- div class="gradient-line" ></div -->
       </div>
-      {%- endunless -%}
-      {% include footer.html class="footer_doc" %}
+        {%- endunless -%}
+        {% include footer.html class="footer_doc" %}
+      
     </div>
-</div>
+  </div>
 </div>
