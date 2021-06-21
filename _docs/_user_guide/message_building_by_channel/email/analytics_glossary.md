@@ -78,5 +78,10 @@ glossaries:
     calculation: Primary Conversions / Unique Recipients
   - name: Confidence
     description: The percentage of confidence that a certain variant of a message is outperforming the control group.
-
+  - name: Opened and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, opened the email and then converted.
+  - name: Clicked and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, clicked the email and then converted.
+  - name: Received and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, received the email and then converted.
 ---

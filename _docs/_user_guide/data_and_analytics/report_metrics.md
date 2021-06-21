@@ -219,5 +219,16 @@ glossaries:
       - iOS Push
       - Android Push
       - SMS
-
+  - name: Opened and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, opened the email and then converted.
+    tags:
+      - Email
+  - name: Clicked and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, clicked the email and then converted.
+    tags: 
+      - Email
+  - name: Received and Converted
+    description: The number and percentage of unique email recipients who have, within the selected conversion window, received the email and then converted.
+    tags:
+      - Email
 ---
