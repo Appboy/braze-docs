@@ -11,3 +11,4 @@ jekyll-algolia-*
 .jekyll-cache
 .vscode
 .jekyll-metadata
+.idea
