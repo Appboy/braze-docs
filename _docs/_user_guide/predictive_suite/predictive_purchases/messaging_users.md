@@ -3,7 +3,6 @@ nav_title: Messaging Users
 title: Messaging Users
 description: "This reference article covers potential next steps after you have created a Purchase Prediction, such as filter implementation and strategic considerations."
 page_order: 3
-hidden: true
 
 Tool:
   - Dashboard

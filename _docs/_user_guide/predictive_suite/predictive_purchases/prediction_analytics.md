@@ -3,7 +3,6 @@ nav_title: Prediction Analytics
 title: Prediction Analytics
 description: "This reference article covers the different components included in the Purchase Prediction Analytics Page and how they can be used to make insightful driven decisions."
 page_order: 2
-hidden: true
 ---
 
 # Prediction Analytics
