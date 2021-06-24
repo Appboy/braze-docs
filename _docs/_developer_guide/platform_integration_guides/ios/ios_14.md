@@ -3,7 +3,7 @@ nav_title: iOS 14 Upgrade Guide
 page_order: 7
 platform: iOS
 description: "This reference article covers the iOS 14 SDK update, highlighting changes such as geofences, location targeting, IDFA, and more."
-
+hidden: true
 ---
 
 # iOS 14 SDK Upgrade Guide
