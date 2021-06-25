@@ -28,17 +28,26 @@ On the Braze dashboard, Link Templates are found in the Templates & Media sectio
 
 There are two types of Link Templates a user can create.
 
-#### Create a Link Template that inserts before a URL
+{% tabs %}
+{% tab Link Template Before URL %}
+
+__Create a Link Template that inserts before a URL__
 
 Clients who want to pre-append a string or URL before a link in their Email message can create a new Link Template and choose the Template position to be "Before URL".  This will allow you to enter a string that will always get appended before a URL.  A preview section is provided to give you an example of the insertion process.
 
-![pre-append][3]
+![pre-append]({% image_buster /assets/img_archive/link_template_preappend.png %})
 
-#### Create a Link Template that appends after a URL
+{% endtab %}
+{% tab Link Template After URL %}
+
+__Create a Link Template that appends after a URL__
 
 Clients who want to append query parameters after a URL in their Email message can create a new Link Template and choose the Template position to be "After URL".  This will allow you to enter query parameters (value=something) to the end of each URL.  You can have multiple parameters appended to the end of a URL.
 
-![postappend][2]
+![postappend]({% image_buster /assets/img_archive/link_template_postappend.png %})
+
+{% endtab %}
+{% endtabs %}
 
 ### Selecting a Template
 

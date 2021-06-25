@@ -22,11 +22,9 @@ To see examples of email campaigns, check out our [Client Integration Gallery][9
 ## Step 1: Create a New Campaign
 Click __Create Campaign__ in the top right corner of the __Campaigns__ page.
 
-![newcampaign][1]
-
 ## Step 2: Compose Your Email or Use a Template {#step-2-choose-your-template-and-compose-your-email}
 
-Click on the appropriate tile to choose an [existing email template][10] or [upload one from a file][18], and then draft your message.
+Click on the appropriate tile to choose select wether to use our drag & drop editing or our HTML editor. Once selected, you may either select an existing [HTML][10] or [ drag & drop][10] email template, [upload one from a file][18] (HTML editor only), or create one from scratch and then draft your message.
 
 ![email1][3]
 
@@ -66,34 +64,30 @@ You can schedule your campaigns against three types of delivery:
 - Action-Based (sending when your users perform specified actions), and
 - API-Triggered (sending according to an API request).
 
-
-
 {% tabs %}
-  {% tab Scheduled Delivery %}
+{% tab Scheduled Delivery %}
 Scheduled Delivery allows you to specify the time at which you want the message to send, either immediately or at a future time (you can also consider local time in your scheduling). You can also use Intelligent Timing to send the message when the user is most likely to engage. Braze makes this calculation based on a statistical analysis of the user's interactions with your app.
 
 Messages can also be configured to recur daily, weekly (optionally on specific days), or monthly.
 
 Unless you select the option to "Message Repeatedly", each user will only receive the contents of a campaign once, and only new users that meet the criteria will receive the campaign on subsequent deliveries.
 
-
 ![Schedule]({% image_buster /assets/img_archive/schedule_new.png %}){: height="80%"" width="80%"}
 
-  {% endtab %}
-  {% tab Action-Based Delivery %}
+{% endtab %}
+{% tab Action-Based Delivery %}
 
-  Action-Based Delivery allows you to specify the time a message will send after a user takes a particular action (selected from the __New Trigger Action__ dropdown.)
+Action-Based Delivery allows you to specify the time a message will send after a user takes a particular action (selected from the __New Trigger Action__ dropdown.)
 
 ![Action]({% image_buster /assets/img_archive/action_delivery_new.png %}){: height="80%"" width="80%"}
 
-  {% endtab %}
-  {% tab API-Triggered Delivery %}
+{% endtab %}
+{% tab API-Triggered Delivery %}
 Check out our [API-Triggered section of the Developer Guide]({{site.baseurl}}/developer_guide/rest_api/messaging/#sending-messages-via-api-triggered-delivery) for more on API-Triggered Delivery.
 
 ![API]({% image_buster /assets/img_archive/api_delivered_new.png %}){: height="80%"" width="80%"}
-  {% endtab %}
+{% endtab %}
 {% endtabs %}
-
 
 ## Step 4: Choose Conversion Events
 
@@ -141,7 +135,7 @@ Braze will de-duplicate sends by email address. However, opens are not de-duplic
 [9]: {{site.baseurl}}/help/best_practices/client_integration_gallery/#client-integration-email
 [10]: {{site.baseurl}}/user_guide/message_building_by_channel/email/creating_an_email_template/#creating-an-email-template
 [13]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/multivariate_testing/#intelligent-selection
-[14]: {% image_buster /assets/img/email.jpg %}
+[14]: {% image_buster /assets/img/email.png %}
 [15]: {% image_buster /assets/img_archive/newEmailTest.png %}
 [16]: {{site.baseurl}}/help/best_practices/email/email_styling_tips/#email-size
 [17]: {% image_buster /assets/img_archive/email_click_results_heatmap.gif %}
