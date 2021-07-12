@@ -64,6 +64,7 @@ You can template in the following attributes for the user's most recent device a
 | `{{most_recently_used_device.${platform}}}` | The device's platform, if available. If set, the value will be one of `ios`, `android`, `windows`, `windows8`, `kindle`, `android_china`, `web`, or `tvos`. |
 {: .reset-td-br-1 .reset-td-br-2}
 
+{% include video.html id="Dv__RAUwamA" align="right" %}
 
 Because there are such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any Liquid that conditionally depends on any of those values. These values will be `null` if they are not available on a particular device.
 

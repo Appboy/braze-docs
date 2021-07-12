@@ -86,7 +86,6 @@ tool:
 ---
 ```
 
-
 ## Page Types
 
 To apply these, be sure your yaml parameter for page types is: `page_type:`
