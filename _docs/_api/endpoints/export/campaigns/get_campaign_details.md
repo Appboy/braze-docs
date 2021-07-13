@@ -93,6 +93,31 @@ The `messages` response will contain information about each message. Example mes
 }
 ```
 
+#### In-App Message Channel
+
+```json
+{
+    "type": (string) description of in-app message type, such as "survey", "modal", and "fullscreen",
+    "data": {
+        "pages": [
+            {
+                "header": (hash) specified request headers,
+                "choices": [
+                    {
+                       "choice_id": (string) choice identifier,
+                       "text": (string) display text, 
+                       "custom_attribute_key": (string) custom attribute key, 
+                       "custom_attribute_value": (sting) custom attribute value,
+                       "deleted": (boolean) deleted from live campaign, 
+                    },
+                    ...
+                ]
+            }
+        ]
+    }
+}
+```
+
 #### Content Card Channel
 
 ```json
