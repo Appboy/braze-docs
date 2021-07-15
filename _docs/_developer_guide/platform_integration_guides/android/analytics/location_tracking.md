@@ -48,7 +48,7 @@ Appboy.getInstance(context).getCurrentUser().setLastKnownLocation(LATITUDE_DOUBL
 {% tab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
+Braze.getInstance(context).currentUser?.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 ```
 
 {% endtab %}

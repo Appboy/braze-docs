@@ -47,7 +47,7 @@ Appboy.getInstance(context).getCurrentUser().setFirstName("first_name");
 {% tab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setFirstName("first_name")
+Braze.getInstance(context).currentUser?.setFirstName("first_name")
 ```
 
 {% endtab %}
@@ -84,7 +84,7 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttribute("your_attrib
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", "your_attribute_value")
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", "your_attribute_value")
 ```
 
 {% endsubtab %}
@@ -104,9 +104,9 @@ Appboy.getInstance(context).getCurrentUser().incrementCustomUserAttribute("your_
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute, "your_attribute_key", YOUR_INT_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute, "your_attribute_key", YOUR_INT_VALUE)
 // Integer attributes may also be incremented using code like the following:
-Braze.getInstance(context).getCurrentUser<BrazeUser>().incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE)
+Braze.getInstance(context).currentUser?.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE)
 ```
 
 {% endsubtab %}
@@ -124,7 +124,7 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttribute("your_attrib
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE)
 ```
 
 {% endsubtab %}
@@ -142,7 +142,7 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttribute("your_attrib
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE)
 ```
 
 {% endsubtab %}
@@ -160,7 +160,7 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttribute("your_attrib
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE)
 ```
 
 {% endsubtab %}
@@ -178,7 +178,7 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttribute("your_attrib
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE)
 ```
 
 {% endsubtab %}
@@ -200,11 +200,11 @@ Appboy.getInstance(context).getCurrentUser().setCustomUserAttributeToSecondsFrom
 {% subtab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttribute("your_attribute_key", YOUR_DATE_VALUE)
+Braze.getInstance(context).currentUser?.setCustomUserAttribute("your_attribute_key", YOUR_DATE_VALUE)
 // This method will assign the current time to a custom attribute at the time the method is called:
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttributeToNow("your_attribute_key")
+Braze.getInstance(context).currentUser?.setCustomUserAttributeToNow("your_attribute_key")
 // This method will assign the date specified by SECONDS_FROM_EPOCH to a custom attribute:
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomUserAttributeToSecondsFromEpoch("your_attribute_key", SECONDS_FROM_EPOCH)
+Braze.getInstance(context).currentUser?.setCustomUserAttributeToSecondsFromEpoch("your_attribute_key", SECONDS_FROM_EPOCH)
 ```
 
 {% endsubtab %}
@@ -235,11 +235,11 @@ Appboy.getInstance(context).getCurrentUser().removeFromCustomAttributeArray("you
 
 ```kotlin
 // Setting a custom attribute with an array value
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setCustomAttributeArray("your_attribute_key", testSetArray)
+Braze.getInstance(context).currentUser?.setCustomAttributeArray("your_attribute_key", testSetArray)
 // Adding to a custom attribute with an array value
-Braze.getInstance(context).getCurrentUser<BrazeUser>().addToCustomAttributeArray("your_attribute_key", "value_to_add")
+Braze.getInstance(context).currentUser?.addToCustomAttributeArray("your_attribute_key", "value_to_add")
 // Removing a value from an array type custom attribute
-Braze.getInstance(context).getCurrentUser<BrazeUser>().removeFromCustomAttributeArray("your_attribute_key", "value_to_remove")
+Braze.getInstance(context).currentUser?.removeFromCustomAttributeArray("your_attribute_key", "value_to_remove")
 ```
 
 {% endsubtab %}
@@ -262,7 +262,7 @@ Appboy.getInstance(context).getCurrentUser().unsetCustomUserAttribute("your_attr
 {% tab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().unsetCustomUserAttribute("your_attribute_key")
+Braze.getInstance(context).currentUser?.unsetCustomUserAttribute("your_attribute_key")
 ```
 
 {% endtab %}
@@ -308,7 +308,7 @@ Appboy.getInstance(context).getCurrentUser().setEmailNotificationSubscriptionTyp
 {% tab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setEmailNotificationSubscriptionType(emailNotificationSubscriptionType)
+Braze.getInstance(context).currentUser?.setEmailNotificationSubscriptionType(emailNotificationSubscriptionType)
 ```
 
 {% endtab %}
@@ -327,7 +327,7 @@ Appboy.getInstance(context).getCurrentUser().setPushNotificationSubscriptionType
 {% tab KOTLIN %}
 
 ```kotlin
-Braze.getInstance(context).getCurrentUser<BrazeUser>().setPushNotificationSubscriptionType(pushNotificationSubscriptionType)
+Braze.getInstance(context).currentUser?.setPushNotificationSubscriptionType(pushNotificationSubscriptionType)
 ```
 
 {% endtab %}
