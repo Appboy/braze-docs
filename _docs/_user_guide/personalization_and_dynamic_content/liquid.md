@@ -32,6 +32,9 @@ guide_featured_list:
 - name: Aborting Messages
   link: /docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/
   fa_icon: fas fa-undo
+- name: Liquid Use Cases
+  link: /docs/user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases/
+  fa_icon: fas fa-list-ul
 ---
 
 ## About Liquid

@@ -1,0 +1,279 @@
+---
+layout: default
+hide_toc: true
+hide_bottom_nav: false
+hide_breadcrumb: false
+---
+
+
+
+{%- comment -%} Assigned variables first by page, then by layout {%- endcomment -%}
+{%- assign hide_nav = page.hide_nav -%}
+
+
+{%- assign hide_bottom_nav = page.hide_bottom_nav -%}
+{%- assign hide_breadcrumb = page.hide_breadcrumb -%}
+{%- assign hide_feedback = page.hide_feedback -%}
+{%- assign hide_toc = page.hide_toc -%}
+{%- unless hide_nav -%}
+{%- assign hide_nav = layout.hide_nav -%}
+{%- endunless -%}
+{%- unless hide_toc -%}
+{%- assign hide_toc = layout.hide_toc -%}
+{%- endunless -%}
+
+{%- unless hide_bottom_nav -%}
+{%- assign hide_bottom_nav = layout.hide_bottom_nav -%}
+{%- endunless -%}
+{%- unless hide_breadcrumb -%}
+{%- assign hide_breadcrumb = layout.hide_breadcrumb -%}
+{%- endunless -%}
+{%- unless hide_feedback -%}
+{%- assign hide_feedback = layout.hide_feedback -%}
+{%- endunless -%}
+
+{% unless hide_nav %}
+<!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
+   <i class="fas"></i>
+</button -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  function string_to_slug(str) {
+    str = str.replace(/^\s+|\s+$/g, ''); // trim
+    str = str.toLowerCase();
+
+    // remove accents, swap ñ for n, etc
+    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+    var to   = "aaaaeeeeiiiioooouuuunc------";
+    for (var i=0, l=from.length ; i<l ; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    str = str.replace(/[\(\)]/g, '') // remove parenthsis
+        .replace(/[^a-z0-9 -]/g, '-') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-');  // collapse dashes
+
+    return str;
+  }
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
+
+  var alltags = {}
+
+  function matchterms(searchterm, items) {
+    var found = false;
+    if (Array.isArray(items)) {
+      for (var i = 0; i < items.length; i++ ) {
+        if (Array.isArray(searchterm)) {
+          for (var j = 0; j < searchterm.length; j++ ) {
+            if (items[i].trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
+              found = true
+            }
+          }
+        }
+        else {
+          if (items[i].trim().toLowerCase() == searchterm.trim().toLowerCase()) {
+            found = true
+          }
+        }
+      }
+    }
+    else {
+      if (Array.isArray(searchterm)) {
+        for (var j = 0; j < searchterm.length; j++ ) {
+          if (items.trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
+            found = true
+          }
+        }
+      }
+      else {
+        if (items.trim().toLowerCase().indexOf(searchterm.trim().toLowerCase()) > -1) {
+          found = true
+        }
+      }
+    }
+    return found;
+  }
+
+  function find_tags(){
+    var api_tags = $('.api_tags');
+    var alltags = {};
+    api_tags.each(function(k,v){
+      var curtag = $(this);
+      var tag_list = curtag.attr('data-tags').split(',');
+      for (var i = 0; i < tag_list.length; i++) {
+        var trimtag = tag_list[i].trim();
+        if (trimtag.toLowerCase() != 'all') {
+          alltags[trimtag.toLowerCase()] = trimtag;
+        }
+      }
+    });
+    return alltags;
+  }
+  function set_tags(alltags) {
+    var tag_div = $('#api_filter_list');
+    var sorted_tags = []
+    $.each(alltags, function(k,v){
+      sorted_tags.push(k)
+    });
+    sorted_tags.sort();
+    $.each(sorted_tags,function(k,v){
+      var filter_slug = string_to_slug(v);
+      var filter_div = $('<div>').addClass('api_filter_div');
+      var filter_label = $('<label>').attr('for','api_' + filter_slug);
+      var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
+      filter_label.append(filter_cb).append(' ' + alltags[v]);
+      filter_div.append(filter_label);
+      tag_div.append(filter_div);
+    })
+  }
+
+
+    function search_apis(api_hash) {
+      var result_cnt = 0;
+      $('#results_msg').hide();
+      var api_div = $('#api_list .api_div');
+      var search_str = $('#api_search').val().toLowerCase();
+      var selected_vals = [];
+      $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
+       selected_vals.push($(this).val());
+      })
+      var showall = true;
+      if (selected_vals.length || search_str) {
+        showall = false;
+      }
+      api_div.each(function(k,v){
+        var filtered = false;
+        var curdiv = $(this);
+        curdiv.show();
+        if (!showall) {
+          var curtag = curdiv.find('.api_tags').first();
+          var apitags = []
+          if (curtag) {
+            apitags = curtag.attr('data-tags-lower').split(',');
+          }
+
+          if (selected_vals.length) {
+            // api doesn't have an all tag filter explicitly
+            if (apitags.indexOf('all') == -1) {
+              // check if tag
+
+              if (!matchterms(selected_vals, apitags) && !filtered) {
+                filtered = true;
+              }
+            }
+          }
+          if (!filtered && search_str) {
+            var curcontent = curdiv.text().replace(/(\n|\r\n|\r)\d+/g,"").toLowerCase().replace(/\s\s+/g, ' ');
+            if (curcontent.indexOf(search_str) < 0) {
+              filtered = true
+            }
+          }
+          if (filtered) {
+            curdiv.hide();
+          }
+          else {
+            curdiv.show();
+            result_cnt++;
+          }
+        }
+      })
+      if (!result_cnt && !showall) {
+        $('#results_msg').html('<p>No APIs matching these filters</p>');
+        $('#results_msg').show();
+      }
+    };
+
+
+  function initialize() {
+    alltags = find_tags();
+    set_tags(alltags);
+    var query_str = getUrlParameter('tags').toLowerCase().split(',');
+    $('.api_filter_div input[type="checkbox"]').each(function(e){
+      $(this).on('click', function(e){
+        search_apis();
+      });
+      if (matchterms($(this).val(), query_str)) {
+        $(this).prop('checked',true);
+      }
+    });
+
+    if (query_str.length) {
+      search_apis();
+    }
+
+    $('#api_search').on('keyup',function(e){
+      search_apis();
+    });
+
+    if (location.hash && $(location.hash.replace('%20','-').replace('+','-')).offset()) {
+      // Scroll to generated hash
+      $('html, body').animate({
+        scrollTop: $(location.hash).offset().top
+      });
+    }
+  };
+  initialize();
+});
+</script>
+
+
+<div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 d-print-none collapse d-md-block" id="nav_bar"  >
+  <div id="nav_col" class="  ">
+  {% include left_nav_menu.html  %}
+  </div>
+</div>
+{% endunless %}
+
+<div class="col d-print-block " id="main_content" >
+
+    <div id="api-main">
+
+
+    <h1> Liquid Use Case Library </h1>
+    <p class="api_text">Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below. <br><br>Use the search bar or the checkboxes below to find the use cases that fit your need. </p>
+
+    <div id="api_filter">
+        <input id="api_search" type="search" placeholder="Search" />
+        <div id="api_filter_list"></div>
+    </div>
+
+    <div id="api_list" class="flex mx-auto api_div">
+      {{content}}
+    </div>
+    <div id="results_msg"></div>
+
+
+  </div>
+    {%- unless hide_bottom_nav -%}
+    <div id="bottom_nav" >
+      {%- unless hide_feedback -%}
+      {% include feedback.html  %}
+      {%- endunless -%}
+      <!-- div class="gradient-line" ></div -->
+      <div id="bottom_page_nav">
+        <a id="page_prev_link"><div id="page_prev" ></div></a>
+        <a id="page_next_link"><div id="page_next" ></div></a>
+      </div>
+    </div>
+
+    {%- endunless -%}
+
+    {% include footer.html class="footer_api" %}
+</div>
+{%- unless hide_toc -%}
+<!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
+   <i class="fas"></i>
+</button -->
+<div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  <div id="toc" ></div>
+</div>
+{%- endunless -%}
